@@ -20,6 +20,12 @@ type HeaderProps = {
   withImage?: boolean;
 };
 
+type HeaderAndroidProps = {
+  heading: string;
+  withSearch?: boolean;
+  withSettings?: boolean;
+};
+
 type AboutHeaderProps = {
   heading: string;
 };
@@ -59,6 +65,7 @@ export type AboutScreenParamTypes = AboutScreenParams;
 export type GroupScreenRoutePropList = GroupScreenRouteProp;
 
 export type HeaderPropList = HeaderProps;
+export type HeaderAndroidPropList = HeaderAndroidProps;
 export type AboutHeaderPropList = AboutHeaderProps;
 export type GroupLinkPropList = GroupLinkProps;
 export type SubjectCardPropList = SubjectCardProps;
