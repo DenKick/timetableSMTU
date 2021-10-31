@@ -1,11 +1,16 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {Platform, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {useNavigation, useTheme} from '@react-navigation/native';
 
 import {GroupLinkPropList, GroupScreenParamTypes} from '../../types/types';
 
 const GroupLink: React.FC<GroupLinkPropList> = ({title}) => {
   const navigation = useNavigation<GroupScreenParamTypes>();
+  const {colors} = useTheme();
+
+  const color: string | undefined =
+    Platform.OS === 'android' ? colors.background : undefined;
+
   const handlePress = () => {
     navigation.navigate('Group', {id: title});
   };
@@ -15,7 +20,7 @@ const GroupLink: React.FC<GroupLinkPropList> = ({title}) => {
       onPress={handlePress}
       style={styles.container}
       activeOpacity={0.8}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={[styles.title, {color: color}]}>{title}</Text>
     </TouchableOpacity>
   );
 };
