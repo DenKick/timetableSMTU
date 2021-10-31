@@ -7,19 +7,15 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 
-import Home from './src/pages/Home';
-import Group from './src/pages/Group';
+import Home from './src/pages/Home/Home';
+import Group from './src/pages/Group/Group';
 import About from './src/pages/About';
 
 import {DarkTheme, LightTheme} from './src/themes/Themes';
 
-type RootStackParamList = {
-  Home: undefined;
-  Group: {id: string};
-  About: undefined;
-};
+import {RootStackParamTypes} from './src/types/types';
 
-const RootStack = createNativeStackNavigator<RootStackParamList>();
+const RootStack = createNativeStackNavigator<RootStackParamTypes>();
 
 const App = () => {
   const scheme = useColorScheme() === 'dark';
